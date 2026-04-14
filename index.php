@@ -18,6 +18,7 @@ date_default_timezone_set('Asia/Jakarta');
 
 <a href="about.php">Tentang</a> |
 <a href="contact.php">Kontak</a>
+<h1>KONTOL</h1>
 
 </body>
 </html>
