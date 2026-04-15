@@ -1,0 +1,1 @@
+<?php echo json_encode(monitoring_outbox_atbram());

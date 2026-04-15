@@ -1,0 +1,1 @@
+[["tmpval_default",["25","60","100"]],["tmpval_unit",[{"persentase":"50","hari":"0"},{"persentase":"100","hari":"0"}]],["cekIF_50","50.00 >= 50"],["countCek_50",0],["genBiayaSubkon_50","input-data-50"],["cekIF_100","50.00 >= 100"]]

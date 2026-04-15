@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<phpunit
+    bootstrap="tests/bootstrap.php"
+    colors="true"
+    cacheResult="false"
+>
+    <testsuites>
+        <testsuite name="Application Test Suite">
+            <directory>tests/php</directory>
+        </testsuite>
+    </testsuites>
+
+    <coverage processUncoveredFiles="false">
+        <include>
+            <file>sysfiles-6d3124790042b0d1e77b7c27b288d07b/function_!global.php</file>
+        </include>
+        <report>
+            <clover outputFile="test-results/phpunit/clover.xml"/>
+        </report>
+    </coverage>
+
+    <logging>
+        <junit outputFile="test-results/phpunit/junit.xml"/>
+    </logging>
+</phpunit>

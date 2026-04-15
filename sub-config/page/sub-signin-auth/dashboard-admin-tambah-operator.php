@@ -1,0 +1,77 @@
+<div class="container">
+
+			
+			<div class="row u-mb-large" style="margin-top: 20px;">
+                <div class="col-sm-12"> 
+					
+					<div class="o-page__card">
+						<div class="c-card u-mb-xsmall">
+							<header class="c-card__header c-toolbar">
+								<a class="c-btn c-btn--primary" href="./dashboard-admin-data-operator.html" style="padding: 0px 10px;margin-right: 5px;"><i class="fas fa-angle-left"></i></a>
+								<a href=""><h1 class="c-toolbar__title u-h3 u-text-center u-mb-zero">Tambah Operator</h1></a>
+							</header>
+
+							<div class="c-card__body">
+								<div class="c-field u-mb-small" id="nama-wrapper">
+									<label class="c-field__label" for="nama">Nama</label> 
+									<input class="c-input focus-onload" type="text" id="nama" placeholder="">
+									<input type="hidden" id="idsekolah" value="<?php echo $_GET["idsekolah"]; ?>">
+								</div>
+								<div class="c-field u-mb-small" id="nohp1-wrapper">
+									<label class="c-field__label" for="nohp1">Nohp Whatsapp</label> 
+									<input class="c-input filter-number" type="text" id="nohp1" placeholder="">
+								</div>
+								<div class="c-field u-mb-small" id="email1-wrapper">
+									<label class="c-field__label" for="email1">Email</label> 
+									<input class="c-input" type="email" id="email1" placeholder="">
+								</div>
+								<div class="c-field u-mb-small" id="password-wrapper">
+                        			<div class="c-field has-icon-right">
+										<label class="c-field__label" for="password">Password</label> 
+										<input class="c-input pswd" type="text" id="password" autocomplete="new-password" placeholder="">
+										<span class="c-field__icon">
+											<i class="far fa-eye-slash u-pt-medium toggle-text-password cursor-pointer" targetid="password"></i>
+										</span>
+									</div>
+								</div>
+								<div class="c-field u-mb-small" id="role-wrapper">
+										<label class="c-field__label" for="role">Role</label>
+										<!-- Select2 jquery plugin is used -->
+										<select class="form-control" id="role">
+											<option value="operator"	>Operator</option>
+											<option value="supervisor"	>Supervisor</option>
+											<option value="manager"		>Manager</option>
+											<option value="admin"       >Administrator</option>
+										</select>
+								</div>
+								<div class="c-field u-mb-small" id="jabatan-wrapper">
+										<label class="c-field__label" for="jabatan">Jabatan</label>
+										<select class="form-control" id="jabatan">
+											<option value="">Pilih Jabatan</option>
+											<?php
+
+											for($i=0;$i<count($_SESSION["sess"]["listJabatan"]);$i++)
+											{
+												echo '<option value="'.$_SESSION["sess"]["listJabatan"][$i].'" '; 
+												if($_SESSION["sess"]["listJabatan"][$i]=='-----') echo " disabled"; 
+												echo '>';
+												echo $_SESSION["sess"]["listJabatan"][$i];
+												echo '</option>';
+											}
+
+											?>
+										</select>
+								</div>
+
+								<button id="TambahOperator" class="c-btn c-btn--info c-btn--fullwidth" type="submit">Tambah</button>
+							</div>
+						</div>
+
+					</div>
+
+                   
+                </div>
+            </div>
+	
+
+</div><!-- // .container -->

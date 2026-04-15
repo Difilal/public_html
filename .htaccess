@@ -1,0 +1,372 @@
+<IfModule mod_security.c>
+	SecFilterEngine Off
+	SecFilterScanPOST Off
+</IfModule>
+
+
+
+<IfModule mod_rewrite.c>
+RewriteEngine on
+#RewriteRule ^(.*)\.irwan$ $1.php [NC]
+#RewriteRule ^album/([0-9]+)/([0-9]+) 								index.php?year=$1&month=$2 [NC]
+#RewriteRule ^domain 												index.php/?pg=regdomain [NC]
+#RewriteRule ^contactus/ 											index.php/?pg=contactus [NC]
+
+#RewriteRule ^articles/(w+)/([0-9]+)$ 								articles.php?category=$1&article_id=$2
+#http://www.sorsawo.com/2010/01/tips-dan-trik-url-rewriting-bag-4/
+
+#RewriteRule ^artikel/([0-9]+)/([a-zA-Z0-9_-]+)(\.html)?$ 			artikel.php?id=$1 [L] 
+#http://forum.hmif.org/showthread.php?tid=670
+
+
+
+#php_value session.gc_maxlifetime 18000
+#php_value session.save_path D:\irwan\!htdocs\surya_cod\session_files
+#php_value session.save_path /home/u5529271/public_html/!addon-suryatoserba.co.id/!session_files@#&^@&*^@2ghg3g872HGUYWGE@8327&*@^#*&@^@2283289
+
+#RewriteCond %{REQUEST_URI} !^/siteplan\.png$ 
+# Header set Access-Control-Allow-Origin "http://adms.pmpland.co.id:1111/"
+# Header set Access-Control-Allow-Origin "https://app.pmpland.co.id/"
+# Header set Access-Control-Allow-Origin *
+# Header set Access-Control-Allow-Headers *
+# Header set Access-Control-Allow-Methods: "GET,POST,OPTIONS,DELETE,PUT"
+
+
+#-> fonts
+	RewriteRule ^text-security-circle(\.eot)$				fonts-pswd/text-security-circle.eot [NC]
+	RewriteRule ^text-security-circle(\.woff2)$				fonts-pswd/text-security-circle.woff2 [NC]
+	RewriteRule ^text-security-circle(\.woff)$				fonts-pswd/text-security-circle.woff [NC]
+	RewriteRule ^text-security-circle(\.ttf)$				fonts-pswd/text-security-circle.ttf [NC]
+	RewriteRule ^text-security-circle(\.svg)$				fonts-pswd/text-security-circle.svg [NC]
+
+	RewriteRule ^text-security-square(\.eot)$				fonts-pswd/text-security-square.eot [NC]
+	RewriteRule ^text-security-square(\.woff2)$				fonts-pswd/text-security-square.woff2 [NC]
+	RewriteRule ^text-security-square(\.woff)$				fonts-pswd/text-security-square.woff [NC]
+	RewriteRule ^text-security-square(\.ttf)$				fonts-pswd/text-security-square.ttf [NC]
+	RewriteRule ^text-security-square(\.svg)$				fonts-pswd/text-security-square.svg [NC]
+
+	RewriteRule ^text-security-disc(\.eot)$					fonts-pswd/text-security-disc.eot [NC]
+	RewriteRule ^text-security-disc(\.woff2)$				fonts-pswd/text-security-disc.woff2 [NC]
+	RewriteRule ^text-security-disc(\.woff)$				fonts-pswd/text-security-disc.woff [NC]
+	RewriteRule ^text-security-disc(\.ttf)$					fonts-pswd/text-security-disc.ttf [NC]
+	RewriteRule ^text-security-disc(\.svg)$					fonts-pswd/text-security-disc.svg [NC]
+
+
+	RewriteRule ^fonts-([a-zA-Z0-9\-=&_@/.]+)(\.eot)$		fonts/$1.eot [NC]
+	RewriteRule ^fonts-([a-zA-Z0-9\-=&_@/.]+)(\.woff2)$		fonts/$1.woff2 [NC]
+	RewriteRule ^fonts-([a-zA-Z0-9\-=&_@/.]+)(\.woff)$		fonts/$1.woff [NC]
+	RewriteRule ^fonts-([a-zA-Z0-9\-=&_@/.]+)(\.ttf)$		fonts/$1.ttf [NC]
+	RewriteRule ^fonts-([a-zA-Z0-9\-=&_@/.]+)(\.svg)$		fonts/$1.svg [NC]
+
+
+#-> ADMS SCRIPT
+	# RewriteRule ^link-absensi-server-adms-pull-data(\.html)$						index.php?pg=otomasi&subpg=link-absensi-server-adms-pull-data [NC]
+	RewriteRule ^link-worker-absen-([a-zA-Z0-9\-=&_@/.]+)(\.html)$					index.php?pg=otomasi&subpg=link-worker-absen&vendor=$1 [NC]
+	RewriteRule ^api-sync-tag(\.html)$												index.php?pg=otomasi&subpg=api-sync&vendor=tag [NC]
+	RewriteRule ^api-sync-([a-zA-Z0-9\-=&_@/.]+)-([a-zA-Z0-9\-=&_@/.]+)(\.html)$	index.php?pg=otomasi&subpg=api-sync&vendor=$1&SN=$2 [NC]
+
+
+#-> HEAD SCRIPT
+
+
+	RewriteRule ^index(\.html)$				                        index.php?pg=dashboard&subpg=abcde [NC]
+	RewriteRule ^link-sample-qrcode-([a-zA-Z0-9_-]+)(\.html)$		index.php?pg=otomasi&subpg=link-sample-qrcode&blok=$1 [NC]
+	RewriteRule ^link-dashboard(\.html)$				        	index.php?pg=otomasi&subpg=dashboard [NC]
+	RewriteRule ^link-absensi-photo-sync(\.html)$				    index.php?pg=otomasi&subpg=link-absensi-photo-sync [NC]
+	RewriteRule ^file-absensi-get-content(\.html)$				    index.php?pg=otomasi&subpg=file-absensi-get-content [NC]
+	RewriteRule ^link-cronjob-function(\.html)$				        index.php?pg=otomasi&subpg=link-cronjob-function [NC]
+	RewriteRule ^link-worker(\.html)$				                index.php?pg=otomasi&subpg=link-worker [NC]
+	RewriteRule ^link-worker-watch-reload(\.html)$				    index.php?pg=otomasi&subpg=link-worker-watch-reload [NC]
+	RewriteRule ^link-worker-watch-reload-wa(\.html)$				index.php?pg=otomasi&subpg=link-worker-watch-reload-wa [NC]
+	RewriteRule ^link-worker-([0-9]+)(\.html)$				        index.php?pg=otomasi&subpg=link-worker&idsekolah=$1 [NC]
+	RewriteRule ^link-absen-browser-([0-9]+)(\.html)$				index.php?pg=otomasi&subpg=link-absen-browser&idmesin=$1 [NC]
+	RewriteRule ^link-absen-cronjob(\.html)$						index.php?pg=otomasi&subpg=link-absen-cronjob [NC]
+	RewriteRule ^link-whatsapp-browser-([0-9]+)(\.html)$			index.php?pg=otomasi&subpg=link-whatsapp-browser&idwa=$1 [NC]
+	RewriteRule ^link-whatsapp-cronjob(\.html)$						index.php?pg=otomasi&subpg=link-whatsapp-cronjob [NC]
+	RewriteRule ^link-whatsapp-cronjob-([0-9]+)(\.html)$			index.php?pg=otomasi&subpg=link-whatsapp-cronjob&idwa=$1 [NC]
+	RewriteRule ^link-whatsapp-cronjob-all(\.html)$					index.php?pg=otomasi&subpg=link-whatsapp-cronjob-all [NC]
+	RewriteRule ^link-whatsapp-cronjob-all-sub(\.html)$				index.php?pg=otomasi&subpg=link-whatsapp-cronjob-all-sub [NC]
+
+	RewriteRule ^link-whatsapp-atbram-monitoring-outbox(\.html)$	index.php?pg=otomasi&subpg=link-whatsapp-atbram-monitoring-outbox [NC]
+	RewriteRule ^link-whatsapp-atbram-sync(\.html)$					index.php?pg=otomasi&subpg=link-whatsapp-atbram-sync [NC]
+	RewriteRule ^link-whatsapp-wa-notif-monitoring-outbox(\.html)$	index.php?pg=otomasi&subpg=link-whatsapp-wa-notif-monitoring-outbox [NC]
+	RewriteRule ^link-whatsapp-wa-notif-sync(\.html)$					index.php?pg=otomasi&subpg=link-whatsapp-wa-notif-sync [NC]
+	RewriteRule ^link-whatsapp-wa-notif-sync-file(\.html)$			index.php?pg=otomasi&subpg=link-whatsapp-wa-notif-sync-file [NC]
+
+	RewriteRule ^link-email-cronjob(\.html)$						index.php?pg=otomasi&subpg=link-email-cronjob [NC]
+	RewriteRule ^link-whatsapp-cronjob-per-menit-([0-9]+)(\.html)$	index.php?pg=otomasi&subpg=link-whatsapp-cronjob-per-menit&idwa=$1 [NC]    
+	RewriteRule ^link-rekap-absen-cronjob-([0-9]+)(\.html)$	        index.php?pg=otomasi&subpg=link-rekap-absen-cronjob&idangkatan=$1 [NC]
+	RewriteRule ^link-otomasi-data-kalender-([0-9]+)(\.html)$	    index.php?pg=otomasi&subpg=link-otomasi-data-kalender&idangkatan=$1 [NC]
+	RewriteRule ^link-otomasi-data-absen-siswa-([0-9]+)(\.html)$	index.php?pg=otomasi&subpg=link-otomasi-data-absen-siswa&idangkatan=$1 [NC]
+	RewriteRule ^link-wa-sender-balancer-([0-9]+)(\.html)$	        index.php?pg=otomasi&subpg=link-wa-sender-balancer&idangkatan=$1 [NC]    
+	RewriteRule ^link-notif-siswa-tidak-absen-([0-9]+)(\.html)$	    index.php?pg=otomasi&subpg=link-notif-siswa-tidak-absen&idangkatan=$1 [NC]
+	RewriteRule ^link-kirim-pesan-antar-wa-sender-([0-9]+)(\.html)$ index.php?pg=otomasi&subpg=link-kirim-pesan-antar-wa-sender&idangkatan=$1 [NC]    
+	RewriteRule ^dashboard-realtime-ajax(\.html)$	                index.php?pg=otomasi&subpg=dashboard-realtime-ajax [NC]
+
+	RewriteRule ^payment-gateway-doku-callback-redirect(\.html)$	index.php?pg=otomasi&subpg=payment-gateway-doku-callback-redirect [NC]
+	RewriteRule ^payment-gateway-doku-callback-notify(\.html)$		index.php?pg=otomasi&subpg=payment-gateway-doku-callback-notify [NC]
+	RewriteRule ^payment-gateway-doku-callback-identify(\.html)$	index.php?pg=otomasi&subpg=payment-gateway-doku-callback-identify [NC]
+	
+
+#-> ASSET ACCESS IMAGES
+	RewriteRule ^img-www--([a-zA-Z0-9\-_]+)--([a-zA-Z0-9\-=&_@/.]+)(\.gif)$	sub-www/images/$1/$2.gif [NC]
+	RewriteRule ^img-www--([a-zA-Z0-9\-_]+)--([a-zA-Z0-9\-=&_@/.]+)(\.png)$	sub-www/images/$1/$2.png [NC]
+	RewriteRule ^img-www--([a-zA-Z0-9\-_]+)--([a-zA-Z0-9\-=&_@/.]+)(\.jpg)$	sub-www/images/$1/$2.jpg [NC]
+	RewriteRule ^img-www-([a-zA-Z0-9\-=&_@/.]+)(\.gif)$						sub-www/images/$1.gif [NC]
+	RewriteRule ^img-www-([a-zA-Z0-9\-=&_@/.]+)(\.png)$						sub-www/images/$1.png [NC]
+	RewriteRule ^img-www-([a-zA-Z0-9\-=&_@/.]+)(\.jpg)$						sub-www/images/$1.jpg [NC]
+	RewriteRule ^img-([a-zA-Z0-9\-=&_@/.]+)(\.gif)$							img/$1.gif [NC]
+	RewriteRule ^img-([a-zA-Z0-9\-=&_@/.]+)(\.png)$							img/$1.png [NC]
+	RewriteRule ^img-([a-zA-Z0-9\-=&_@/.]+)(\.jpg)$							img/$1.jpg [NC]
+	RewriteRule ^media-gallery-([a-zA-Z0-9\-=&_@/.]+)(\.jpg)$				file-media-gallery/media-gallery-$1.jpg [NC]
+	RewriteRule ^media-gallery-([a-zA-Z0-9\-=&_@/.]+)(\.mp4)$				file-media-gallery/media-gallery-$1.mp4 [NC]
+	RewriteRule ^file-absensi-([a-zA-Z0-9\-=&_@/.]+)(\.jpg)$				file-absensi/$1.jpg [NC]
+	RewriteRule ^file-agent-([a-zA-Z0-9\-=&_@/.]+)(\.jpg)$					file-agent/$1.jpg [NC]
+	RewriteRule ^file-agent-([a-zA-Z0-9\-=&_@/.]+)(\.jpeg)$					file-agent/$1.jpeg [NC]
+	RewriteRule ^file-download-([a-zA-Z0-9\-=&_@/.]+)(\.jpg)$				file-download/$1.jpg [NC]
+	RewriteRule ^file-download-([a-zA-Z0-9\-=&_@/.]+)(\.jpeg)$				file-download/$1.jpeg [NC]
+	RewriteRule ^file-karyawan-([a-zA-Z0-9\-=&_@/.]+)(\.jpg)$				file-karyawan/$1.jpg [NC]
+	RewriteRule ^file-karyawan-([a-zA-Z0-9\-=&_@/.]+)(\.jpeg)$				file-karyawan/$1.jpeg [NC]
+	RewriteRule ^file-konsumen-([a-zA-Z0-9\-=&_@/.]+)(\.jpg)$				file-konsumen/$1.jpg [NC]
+	RewriteRule ^file-konsumen-([a-zA-Z0-9\-=&_@/.]+)(\.jpeg)$				file-konsumen/$1.jpeg [NC]
+	RewriteRule ^file-konsumen__([0-9]+)__([a-zA-Z0-9\-=&_@/.]+)(\.jpg)$	file-konsumen/$2.jpg [NC]
+	RewriteRule ^file-konsumen__([0-9]+)__([a-zA-Z0-9\-=&_@/.]+)(\.jpeg)$	file-konsumen/$2.jpeg [NC]
+	RewriteRule ^download-siteplan-([a-zA-Z0-9\-=&_@/.]+)(\.jpg)$			filesiteplandownload/$1.jpg [NC]
+	RewriteRule ^([a-zA-Z0-9\-=&_@/.]+)-download-siteplan(\.jpg)$			filesiteplandownload/$1.jpg [NC]
+	RewriteRule ^file-siteplan-([a-zA-Z0-9\-=&_@/.]+)(\.jpg)$				file-siteplan/$1.jpg [NC]
+	RewriteRule ^file-siteplan-([a-zA-Z0-9\-=&_@/.]+)(\.jpeg)$				file-siteplan/$1.jpeg [NC]
+	RewriteRule ^file-upload-([a-zA-Z0-9\-=&_@/.]+)(\.jpg)$					file-upload/$1.jpg [NC]
+	RewriteRule ^file-upload-([a-zA-Z0-9\-=&_@/.]+)(\.jpeg)$				file-upload/$1.jpeg [NC]
+	RewriteRule ^ajax-([a-zA-Z0-9\-=&_@/.]+)(\.gif)$						img/$1.gif [NC]
+	RewriteRule ^thumb-([0-9]+)--([a-zA-Z0-9\-=&_@/.]+)(\.jpg)$				thumb/$2.jpg [NC]
+	RewriteRule ^thumb-([a-zA-Z0-9\-=&_@/.]+)(\.jpg)$						thumb/$1.jpg [NC]
+	RewriteRule ^thumb-([0-9]+)--([a-zA-Z0-9\-=&_@/.]+)(\.jpeg)$			thumb/$2.jpeg [NC]
+	RewriteRule ^thumb-([a-zA-Z0-9\-=&_@/.]+)(\.jpeg)$						thumb/$1.jpeg [NC]
+	RewriteRule ^whatsapp-icon(\.png)$										img/whatsapp-icon.png [NC]
+	RewriteRule ^cron-icon(\.png)$								    		img/cron-icon.png [NC]
+	RewriteRule ^absen-icon(\.png)$											img/absen-icon.png [NC]
+	RewriteRule ^finger-icon(\.png)$										img/finger-icon.png [NC]
+	RewriteRule ^sync-icon(\.png)$											img/sync-icon.png [NC]
+	RewriteRule ^image-upload/([a-zA-Z0-9\-=&_@/.]+)(\.jpg)$				file-upload/$1.jpg [NC]
+
+#-> DIGITAL CARD
+	RewriteRule ^file-digital-card-([a-zA-Z0-9\-=&_@/.]+)(\.jpg)$		file-digital-card/$1.jpg [NC]
+	RewriteRule ^file-digital-card-([a-zA-Z0-9\-=&_@/.]+)(\.jpeg)$		file-digital-card/$1.jpeg [NC]
+	RewriteRule ^file-digital-card-([a-zA-Z0-9\-=&_@/.]+)(\.png)$		file-digital-card/$1.png [NC]
+	RewriteRule ^download/([a-zA-Z0-9_-]+)$								index.php?pages=digital-card-download&key=$1 [NC,L,QSA]
+	RewriteRule ^download-staff/([a-zA-Z0-9_-]+)$						index.php?pages=digital-card-download-b&key=$1 [NC,L,QSA]
+	RewriteRule ^([a-zA-Z0-9_-]+)$										index.php?pages=digital-card&key=$1 [NC,L,QSA]
+	#RewriteRule ^c/([a-zA-Z0-9_-]+)/download$							index.php?pages=digital-card-download&key=$1 [NC,L,QSA]
+	#RewriteRule ^c/([a-zA-Z0-9_-]+)$									index.php?pages=digital-card&key=$1 [NC,L,QSA]
+
+	RewriteRule ^proyek-perumahan/ 	index.php?pages=proyek [NC]
+	RewriteRule ^artikel/$ index.php?pages=artikel [NC,L,QSA]
+	RewriteRule ^artikel/page/([0-9]+)$ index.php?pages=artikels&page=$1 [NC,L,QSA]
+	RewriteRule ^artikel/([^+]+)\-([0-9]+)$ index.php?pages=artikel&judul_konten=$1&id=$2 [NC,L,QSA]
+
+	RewriteRule ^karir/$ index.php?pages=karir [NC,L,QSA]
+	RewriteRule ^karir/page/([0-9]+)$ index.php?pages=karirs&page=$1 [NC,L,QSA]
+	RewriteRule ^karir/([^+]+)\-([0-9]+)$ index.php?pages=karir&judul_konten=$1&id=$2 [NC,L,QSA]
+
+#-> >>>>>>>>>>>>>>>>
+#-> ASSET ACCESS CSS
+	RewriteRule ^bootstrap.min(\.css)$								css/bootstrap.min.css [NC]
+	RewriteRule ^bootstrap.min.css(\.map)$							css/bootstrap.min.css.map [NC]
+	RewriteRule ^css-www/([a-zA-Z0-9\-=&_@/.]+)$					sub-www/css/$1 [NC]
+	RewriteRule ^css-([a-zA-Z0-9\-=&_@/.]+)(\.css)$					css/$1.css [NC]
+	RewriteRule ^([0-9]+)--config--style--([a-zA-Z0-9\-=&_@/.]+)-page-([0-9]+)(\.css)$	css/autogen-config/style-$2.css [NC]
+	RewriteRule ^([0-9]+)--config--style--([a-zA-Z0-9\-=&_@/.]+)-([0-9]+)(\.css)$		css/autogen-config/style-$2.css [NC]
+	RewriteRule ^([0-9]+)--config--style--([a-zA-Z0-9\-=&_@/.]+)(\.css)$				css/autogen-config/style-$2.css [NC]
+	RewriteRule ^([0-9]+)--app--style--([a-zA-Z0-9\-=&_@/.]+)-page-([0-9]+)(\.css)$		css/autogen-app/style-$2.css [NC]
+	RewriteRule ^([0-9]+)--app--style--([a-zA-Z0-9\-=&_@/.]+)-([0-9]+)(\.css)$			css/autogen-app/style-$2.css [NC]
+	RewriteRule ^([0-9]+)--app--style--([a-zA-Z0-9\-=&_@/.]+)(\.css)$					css/autogen-app/style-$2.css [NC]
+	RewriteRule ^([0-9]+)--keuangan--style--([a-zA-Z0-9\-=&_@/.]+)-page-([0-9]+)(\.css)$		css/autogen-keuangan/style-$2.css [NC]
+	RewriteRule ^([0-9]+)--keuangan--style--([a-zA-Z0-9\-=&_@/.]+)-([0-9]+)(\.css)$			css/autogen-keuangan/style-$2.css [NC]
+	RewriteRule ^([0-9]+)--keuangan--style--([a-zA-Z0-9\-=&_@/.]+)(\.css)$					css/autogen-keuangan/style-$2.css [NC]
+	RewriteRule ^([0-9]+)-generated-style-([a-zA-Z0-9\-=&_@/.]+)(\.css)$				css/generated-style.css [NC]
+#-> >>>>>>>>>>>>>>>>>>>>>>>
+#-> ASSET ACCESS JAVASCRIPT
+	RewriteRule ^bootstrap.min.js(\.map)$							js/bootstrap.min.js.map [NC]
+	RewriteRule ^popper.min.js(\.map)$								js/popper.min.js.map [NC]
+	RewriteRule ^js-([a-zA-Z0-9\-=&_@/.]+)(\.js)$					js/$1.js [NC]
+	#RewriteRule ^([0-9]+)-script(\.js)$						    js/script.js [NC]
+	RewriteRule ^([0-9]+)-main-script-([a-zA-Z0-9\-=&_@/.]+)(\.js)$ index.php?pg=main-js&js=main-script&subpg=$2 [NC]
+	RewriteRule ^([0-9]+)-main(\.js)$								js/main.js [NC]
+	RewriteRule ^pwabuilder-sw(\.js)$								js/pwabuilder-sw.js [NC]
+	RewriteRule ^manifest(\.json)$									js/manifest.json [NC]
+	
+
+
+
+#-> GLOBAL - AJAX
+	RewriteRule ^ajax-update-kota(\.html)$							index.php?ajax=1&pg=global&subpg=ajax-update-kota [NC]
+	RewriteRule ^ajax-update-kecamatan(\.html)$						index.php?ajax=1&pg=global&subpg=ajax-update-kecamatan [NC]
+	RewriteRule ^ajax-update-kelurahan(\.html)$						index.php?ajax=1&pg=global&subpg=ajax-update-kelurahan [NC]
+	RewriteRule ^ajax-update-kelurahan2(\.html)$					index.php?ajax=1&pg=global&subpg=ajax-update-kelurahan2 [NC]
+	RewriteRule ^ajax-logout(\.html)$								index.php?ajax=1&pg=dashboard&subpg=ajax-logout [NC]
+#-> >>>>>>>>>>>>>
+#-> GLOBAL - PAGE
+	RewriteRule ^dashboard(\.html)$ 								index.php?pg=dashboard&subpg=dashboard [NC]
+	RewriteRule ^aktivasi-email-([a-zA-Z0-9]+)(\.html)$ 			index.php?pg=index&subpg=aktivasi-email&email_verifikasi=$1 [NC]
+	RewriteRule ^aktivasi-whatsapp-([a-zA-Z0-9]+)(\.html)$ 			index.php?pg=index&subpg=aktivasi-whatsapp&whatsapp_verifikasi=$1 [NC]
+	
+
+
+
+#-> GUEST - AJAX
+	RewriteRule ^ajax-login(\.html)$								index.php?ajax=1&pg=guest&subpg=ajax-login [NC]
+	RewriteRule ^api-login(\.html)$									index.php?ajax=1&pg=guest&subpg=ajax-login [NC]
+	RewriteRule ^ajax-daftar-akun-baru(\.html)$						index.php?ajax=1&pg=guest&subpg=ajax-daftar-akun-baru [NC]
+	RewriteRule ^ajax-reset-password(\.html)$						index.php?ajax=1&pg=guest&subpg=ajax-reset-password [NC]
+	RewriteRule ^api-reset-password(\.html)$						index.php?ajax=1&pg=guest&subpg=ajax-reset-password [NC]
+	RewriteRule ^ajax-simpan-password-baru(\.html)$					index.php?ajax=1&pg=guest&subpg=ajax-simpan-password-baru [NC]
+	RewriteRule ^api-simpan-password-baru(\.html)$					index.php?ajax=1&pg=guest&subpg=ajax-simpan-password-baru [NC]
+	RewriteRule ^ajax-aktivasi-whatsapp(\.html)$					index.php?ajax=1&pg=guest&subpg=ajax-aktivasi-whatsapp [NC]
+#-> >>>>>>>>>>>>
+#-> GUEST - PAGE
+	RewriteRule ^login(\.html)$ 									index.php?pg=guest&subpg=login [NC]
+	RewriteRule ^daftar(\.html)$ 									index.php?pg=guest&subpg=daftar [NC]
+	RewriteRule ^lupa-password(\.html)$ 							index.php?pg=guest&subpg=lupa-password [NC] 
+	RewriteRule ^buat-password-baru(\.html)$ 						index.php?pg=guest&subpg=buat-password-baru [NC] 
+	RewriteRule ^kirim-ulang-aktivasi(\.html)$ 						index.php?pg=guest&subpg=kirim-ulang-aktivasi [NC]
+	
+
+
+
+#-> MEMBER - AJAX
+	RewriteRule ^ajax-dashboard-member-([a-zA-Z0-9\-=&_@/.]+)(\.html)$	index.php?ajax=1&member=1&pg=dashboard&subpg=ajax-dashboard-member-$1 [NC]
+#-> >>>>>>>>>>>>>
+#-> MEMBER - PAGE
+	RewriteRule ^auto-login-keranjang-belanja-([a-zA-Z0-9]+)(\.html)$ 	index.php?member=1&pg=otomasi&subpg=auto-login-keranjang-belanja&pswd=$1 [NC]
+	RewriteRule ^dashboard-operator-data-transaksi-order-confirmed-form-print-([0-9]+)(\.html)$ 	index.php?member=1&pg=dashboard&directsubpg=1&subpg=dashboard-operator-data-transaksi-order-confirmed-form-print&idtransaksi=$1 [NC]
+	RewriteRule ^konfirmasi-order-([a-zA-Z0-9]+)(\.html)$ 				index.php?member=1&pg=dashboard&subpg=konfirmasi-order&idKonfirmasiOrder=$1 [NC]
+	RewriteRule ^dashboard-member-([a-zA-Z0-9\-=&_@/.]+)-page-([0-9]+)(\.html)$  	index.php?member=1&pg=dashboard&subpg=dashboard-member-$1&page=$2 [NC]	
+	RewriteRule ^dashboard-member-([a-zA-Z0-9\-=&_@/.]+)-form-popup(\.html)$ 		index.php?member=1&pg=dashboard&directsubpg=1&subpg=dashboard-member-$1 [NC]
+	RewriteRule ^dashboard-member-([a-zA-Z0-9\-=&_@/.]+)(\.html)$ 			index.php?member=1&pg=dashboard&subpg=dashboard-member-$1 [NC]
+	
+
+
+
+#-> OPERATOR - AJAX
+	RewriteRule ^ajax-dashboard-operator-konsumen-edit-berkas-upload--([a-zA-Z0-9\-=&_@/.]+)(\.html)$					index.php?ajax=1&operator=1&pg=dashboard&subpg=ajax-dashboard-operator-konsumen-edit-berkas-upload&editKonsumen_JenisBerkas=$1 [NC]
+	RewriteRule ^ajax-dashboard-operator-progres-bangunan-update-upload-foto-slf--([a-zA-Z]+)--([0-9]+)(\.html)$		index.php?ajax=1&operator=1&pg=dashboard&subpg=ajax-dashboard-operator-progres-bangunan-update-upload-foto-slf&objek=$1&idunit=$2 [NC]
+	RewriteRule ^ajax-dashboard-operator-bi-checking-pengajuan-berkas-upload-([a-zA-Z0-9\-=&_@/.]+)(\.html)$			index.php?ajax=1&operator=1&pg=dashboard&subpg=ajax-dashboard-operator-bi-checking-pengajuan-berkas-upload&pengajuanBic_JenisBerkas=$1 [NC]
+	RewriteRule ^ajax-dashboard-operator-([a-zA-Z0-9\-=&_@/.]+)(\.html)$												index.php?ajax=1&operator=1&pg=dashboard&subpg=ajax-dashboard-operator-$1 [NC]
+#-> >>>>>>>>>>>>>>>
+#-> OPERATOR - PAGE
+    RewriteRule ^dashboard-operator-booking-kavling-berhasil(\.html)$ 		     					index.php?operator=1&pg=dashboard&subpg=dashboard-operator-booking-kavling&dokuRequestPayment=berhasil [NC]
+    RewriteRule ^dashboard-operator-edit-konsumen-([0-9]+)(\.html)$ 		     					index.php?operator=1&pg=dashboard&subpg=dashboard-operator-edit-konsumen&idkonsumen=$1 [NC]
+    RewriteRule ^dashboard-operator-karyawan-edit-([0-9]+)(\.html)$ 		 						index.php?operator=1&pg=dashboard&subpg=dashboard-operator-karyawan-edit&iduser=$1 [NC]
+    RewriteRule ^dashboard-operator-karyawan-edit-([0-9]+)(\.async)$ 		 						index.php?operator=1&pg=dashboard&subpg=dashboard-operator-karyawan-edit&iduser=$1&loadAsync=1 [NC]
+    RewriteRule ^dashboard-operator-broadcast-general-edit-([0-9]+)(\.html)$  						index.php?operator=1&pg=dashboard&subpg=dashboard-operator-broadcast-general-edit&idbroadcast=$1 [NC]	
+	RewriteRule ^dashboard-operator-broadcast-general-edit-([0-9]+)(\.async)$ 						index.php?operator=1&pg=dashboard&subpg=dashboard-operator-broadcast-general-edit&idbroadcast=$1&loadAsync=1 [NC]
+	RewriteRule ^dashboard-operator-([a-zA-Z0-9\-=&_@/.]+)-page-([0-9]+)(\.async)$  				index.php?operator=1&pg=dashboard&subpg=dashboard-operator-$1&page=$2&loadAsync=1 [NC]	
+	RewriteRule ^dashboard-operator-([a-zA-Z0-9\-=&_@/.]+)-page-([0-9]+)(\.html)$  					index.php?operator=1&pg=dashboard&subpg=dashboard-operator-$1&page=$2 [NC]	
+	RewriteRule ^dashboard-operator-([a-zA-Z0-9\-=&_@/.]+)-form-popup(\.html)$ 						index.php?operator=1&pg=dashboard&directsubpg=1&subpg=dashboard-operator-$1 [NC]
+	RewriteRule ^dashboard-operator-([a-zA-Z0-9\-=&_@/.]+)(\.html)$ 								index.php?operator=1&pg=dashboard&subpg=dashboard-operator-$1 [NC]
+
+
+	
+	
+#-> ADMIN - AJAX
+	RewriteRule ^ajax-dashboard-admin-([a-zA-Z0-9\-=&_@/.]+)(\.html)$			index.php?ajax=1&admin=1&pg=dashboard&subpg=ajax-dashboard-admin-$1 [NC]
+#-> >>>>>>>>>>>>
+#-> ADMIN - PAGE	
+	RewriteRule ^dashboard-admin-edit-operator-([0-9]+)(\.html)$ 				index.php?admin=1&pg=dashboard&subpg=dashboard-admin-edit-operator&iduser=$1 [NC]
+	RewriteRule ^dashboard-admin-edit-operator-([0-9]+)(\.async)$ 				index.php?admin=1&pg=dashboard&loadAsync=1&subpg=dashboard-admin-edit-operator&iduser=$1 [NC]
+	RewriteRule ^dashboard-admin-tambah-operator-([0-9]+)(\.html)$ 				index.php?admin=1&pg=dashboard&subpg=dashboard-admin-tambah-operator&idsekolah=$1 [NC]	
+	RewriteRule ^dashboard-admin-edit-nohp-whatsapp-([0-9]+)(\.html)$ 			index.php?admin=1&pg=dashboard&subpg=dashboard-admin-edit-nohp-whatsapp&idwa=$1 [NC]
+	RewriteRule ^dashboard-admin-edit-nohp-whatsapp-([0-9]+)(\.async)$ 			index.php?admin=1&pg=dashboard&loadAsync=1&subpg=dashboard-admin-edit-nohp-whatsapp&idwa=$1 [NC]
+	RewriteRule ^dashboard-admin-tambah-nohp-whatsapp-([0-9]+)(\.html)$ 		index.php?admin=1&pg=dashboard&subpg=dashboard-admin-tambah-nohp-whatsapp&idsekolah=$1 [NC]
+	RewriteRule ^dashboard-admin-edit-cabang-([0-9]+)(\.html)$ 					index.php?admin=1&pg=dashboard&subpg=dashboard-admin-edit-cabang&idcabang=$1 [NC]
+	RewriteRule ^dashboard-admin-([a-zA-Z0-9\-=&_@/.]+)-page-([0-9]+)(\.async)$ index.php?admin=1&pg=dashboard&subpg=dashboard-admin-$1&page=$2&loadAsync=1 [NC]
+	RewriteRule ^dashboard-admin-([a-zA-Z0-9\-=&_@/.]+)-page-([0-9]+)(\.html)$  index.php?admin=1&pg=dashboard&subpg=dashboard-admin-$1&page=$2 [NC]
+	RewriteRule ^dashboard-admin-([a-zA-Z0-9\-=&_@/.]+)-form-popup(\.html)$ 	index.php?member=1&pg=dashboard&directsubpg=1&subpg=dashboard-admin-$1 [NC]
+	RewriteRule ^dashboard-admin-([a-zA-Z0-9\-=&_@/.]+)(\.html)$ 				index.php?admin=1&pg=dashboard&subpg=dashboard-admin-$1 [NC]
+	
+
+
+
+
+	RewriteRule ^dashboard-page-([0-9]+)(\.html)$ 					index.php?pg=dashboard&subpg=dashboard&page=$1 [NC]
+	RewriteRule ^dashboard-user-data-page-([0-9]+)(\.html)$ 		index.php?pg=dashboard&subpg=dashboard-user-data&page=$1 [NC]
+    
+    
+    
+#-> 
+	RewriteRule ^([a-zA-Z0-9\-=&_@/.]+)(\.global)$ 					index.php?pg=otomasi&subpg=$1 [NC]
+	RewriteRule ^([a-zA-Z0-9\-=&_@/.]+)(\.async)$ 					index.php?pg=otomasi&loadAsync=1&subpg=$1 [NC]
+	RewriteRule ^([a-zA-Z0-9\-=&_@/.]+)(\.api)$ 					index.php?pg=api&subpg=$1 [NC]
+
+	RewriteRule ^ajax-dashboard-([a-zA-Z0-9\-=&_@/.]+)(\.html)$		index.php?ajax=1&pg=dashboard&subpg=ajax-dashboard-$1 [NC]
+	RewriteRule ^ajax-link-absensi-cronjob-server-adms-cek-data-absen-sn-([a-zA-Z0-9_]+)(\.html)$ index.php?ajax=1&pg=global&subpg=ajax-link-absensi-cronjob-server-adms-cek-data-absen&sn=$1 [NC]
+	RewriteRule ^ajax-([a-zA-Z0-9\-=&_@/.]+)(\.html)$				index.php?ajax=1&pg=global&subpg=ajax-$1 [NC]
+	RewriteRule ^dashboard-([a-zA-Z0-9\-=&_@/.]+)(\.html)$ 			index.php?pg=dashboard&subpg=dashboard-$1 [NC]
+	RewriteRule ^([a-zA-Z0-9\-=&_@/.]+)(\.html)$ 					index.php?pg=index&subpg=$1 [NC]
+	#RewriteRule ^404(\.html)$ 										index.php?pg=not-found
+	
+	
+	RewriteRule ^([a-zA-Z0-9]+)$ 									index.php?pg=otomasi&subpg=link-redirect&urlkey=$1 [NC]
+	
+
+
+
+#ErrorDocument 403 													'<meta http-equiv="refresh" content="0;URL=../" /> '		
+#ErrorDocument 404 													'<meta http-equiv="refresh" content="0;URL=../" /> '
+RewriteRule ^asset/$ 												'?exit'
+RewriteRule ^css/$ 													'?exit'
+RewriteRule ^file-download/$ 										'?exit'
+RewriteRule ^file-upload/$ 											'?exit'
+RewriteRule ^fonts/$ 												'?exit'
+RewriteRule ^img/$ 													'?exit'
+RewriteRule ^js/$ 													'?exit'
+RewriteRule ^PHPMailer/$ 											'?exit'
+RewriteRule ^sub-absensi/$ 											'?exit'
+RewriteRule ^sub-app/$												'?exit'
+RewriteRule ^vendor/$												'?exit'
+
+#Hotlinking of image protection
+#generate from http://www.htaccesstools.com/hotlink-protection/
+#RewriteCond %{HTTP_REFERER} !^$
+#RewriteCond %{HTTP_REFERER} !^http(s)?://(www\.)?fjbindo.com [NC]
+#RewriteCond %{HTTP_REFERER} !^http(s)?://(www\.)?fjbindo.net [NC]
+#RewriteCond %{HTTP_REFERER} !^http(s)?://(m\.)?fjbindo.com [NC]
+#RewriteCond %{HTTP_REFERER} !^http(s)?://(m\.)?fjbindo.net [NC]
+#RewriteRule \.(jpg|jpeg|png|gif)$ - [NC,F,L]
+
+#ExpiresActive On
+#ExpiresByType text/html "access plus 1 seconds"
+#ExpiresByType image/gif "access plus 1 years"
+#ExpiresByType image/jpeg "access plus 1 years"
+#ExpiresByType image/png "access plus 1 years"
+#ExpiresByType image/x-icon "access plus 1 years"
+#ExpiresByType text/css "access plus 1 years"
+#ExpiresByType text/javascript "access plus 1 years"
+#ExpiresByType application/x-javascript "access plus 1 years"
+#ExpiresByType application/x-shockwave-flash "access plus 1 years"
+
+#480 weeks
+<FilesMatch "\.(ico|pdf|flv|jpg|jpeg|png|gif|js|css|swf)$">
+Header set Cache-Control "max-age=290304000, public"
+</FilesMatch>
+ 
+#2 DAYS
+<FilesMatch "\.(xml|txt)$">
+Header set Cache-Control "max-age=172800, public, must-revalidate"
+</FilesMatch>
+ 
+#2 HOURS
+<FilesMatch "\.(html|htm)$">
+Header set Cache-Control "max-age=7200, must-revalidate"
+</FilesMatch>
+
+</IfModule>
+
+php_value upload_max_filesize 64M
+php_value post_max_size 128M
+php_value memory_limit 512M
+php_value max_execution_time 300
+php_value max_input_time 300
+php_value max_input_vars 5000
+#SecFilterEngine Off
+#SecFilterScanPOST Off

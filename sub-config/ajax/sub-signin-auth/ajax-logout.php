@@ -1,0 +1,1 @@
+<?php sleep(0); session_destroy(); echo $status=1;

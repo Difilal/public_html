@@ -1,0 +1,50 @@
+{
+  "name": "pmpland-web-www",
+  "version": "1.0.0",
+  "description": "PMP Land — Property Management System (web-www) frontend assets",
+  "private": true,
+  "engines": {
+    "node": ">=18.0.0",
+    "npm": ">=8.0.0"
+  },
+  "dependencies": {
+    "@panzoom/panzoom": "^4.4.4",
+    "crop-select-js": "^1.0.1",
+    "cropper": "^4.1.0",
+    "cropperjs": "^1.5.9",
+    "croppie": "^2.6.5",
+    "jquery": "^3.6.0",
+    "jquery-cropper": "^1.0.1"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.29.0",
+    "@babel/preset-env": "^7.29.0",
+    "babel-loader": "^9.0.0",
+    "css-loader": "^6.0.0",
+    "eslint": "^8.57.1",
+    "jest": "^30.2.0",
+    "jest-junit": "^16.0.0",
+    "mini-css-extract-plugin": "^2.0.0",
+    "sass": "^1.97.3",
+    "sass-loader": "^14.0.0",
+    "webpack": "^5.105.2",
+    "webpack-cli": "^5.0.0"
+  },
+  "scripts": {
+    "build": "webpack --mode production",
+    "dev": "webpack --mode development --watch",
+    "lint": "eslint js/**/*.js",
+    "test": "jest --config jest.config.cjs",
+    "test:ci": "jest --config jest.config.cjs --coverage --ci --reporters=default --reporters=jest-junit"
+  },
+  "jest-junit": {
+    "outputDirectory": "test-results",
+    "outputName": "jest-junit.xml"
+  },
+  "keywords": [
+    "pmpland",
+    "property",
+    "management"
+  ],
+  "license": "UNLICENSED"
+}

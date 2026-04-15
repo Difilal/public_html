@@ -1,0 +1,1 @@
+[["tmpval_default",["25","60","100"]],["tmpval_unit",[{"persentase":"50","hari":"0"},{"persentase":"100","hari":"0"}]],["cekIF_50","100.00 >= 50"],["countCek_50",1],["cekIF_100","100.00 >= 100"],["countCek_100",1]]

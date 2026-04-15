@@ -1,0 +1,1 @@
+<?php sync_whatsapp_wa_notif_files();
